@@ -1,4 +1,5 @@
-/*import 'react-native-gesture-handler';
+/*
+import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -16,9 +17,9 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}*/
-
-
+}
+*/
+/*
 
 import 'react-native-gesture-handler';
 import React from 'react';
@@ -58,3 +59,40 @@ export default function App() {
     </NavigationContainer>
   );
 }
+*/
+
+
+
+import 'react-native-gesture-handler';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import HomeStackScreen from './screens/HomeStackScreen';
+import MoreScreen from './screens/MoreScreen';
+
+const Tab = createBottomTabNavigator();
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          
+          tabBarLabel: () => null, // Oculta el texto de la pestaña
+           headerShown: false, // Asegúrate de que no se muestre el encabezado en el TabNavigator
+        })}
+        tabBarOptions={{
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'gray',
+          showLabel: false, // Asegúrate de que esta opción esté en false
+        }}
+      >
+        <Tab.Screen name="Home" component={HomeStackScreen} />
+        <Tab.Screen name="More" component={MoreScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default App;
